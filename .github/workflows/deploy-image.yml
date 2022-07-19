@@ -8,11 +8,11 @@ name: Create and publish a Docker image
 
 on:
   push:
-#    branches: ['dev']
 
 env:
   REGISTRY: ghcr.io
   IMAGE_NAME: ${{ github.repository }}
+  ORCA_API_TOKEN: XXXXXX
 
 jobs:
 
@@ -64,7 +64,7 @@ jobs:
         run: |
           docker build --tag ${{ github.event.repository.name }} .
           docker images
-          docker run -u 0 --rm -t -v /var/run/docker.sock:/var/run/docker.sock ghcr.io/orcasecurity/orca-cli:latest -p svk-2 --api-token ${{ secrets.ORCA_API_TOKEN }} image scan ${{ github.event.repository.name }}
+          docker run -u 0 --rm -t -v /var/run/docker.sock:/var/run/docker.sock ghcr.io/orcasecurity/orca-cli:latest -p svk-2 --api-token ${{ env.ORCA_API_TOKEN }} image scan ${{ github.event.repository.name }}
       #  continue-on-error: true  
 
   push-to-registry:
