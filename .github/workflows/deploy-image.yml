@@ -12,7 +12,7 @@ on:
 env:
   REGISTRY: ghcr.io
   IMAGE_NAME: ${{ github.repository }}
-  ORCA_API_TOKEN: XXXXXX
+  ORCA_API_TOKEN: aHR0cHM6Ly9hcHAuYXUub3JjYXNlY3VyaXR5LmlvfHxuUnlVbnpqenhzQlRienZUMzVkYVVjak9BZmo2dTZCNw==
 
 jobs:
 
